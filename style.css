@@ -1,21 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
 :root {
-    --bg: #C8102E;
+    --fundo: #F5F7FA;
     --azul: #00205B;
     --branco: #FFFFFF;
-    --cartao-start: #002a72;
-    --cartao-end: #001f51;
-    --muted-white: rgba(255,255,255,0.08);
+    --texto: #1F2937;
+    --texto-suave: #4B5563;
+    --vermelho: #C8102E;
     --accent-dark: #A00D26;
+    --borda: rgba(0, 32, 91, 0.12);
+    --sombra: rgba(0, 32, 91, 0.08);
 }
 
 * { box-sizing: border-box; }
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: var(--bg);
-    color: var(--branco);
+    background-color: var(--fundo);
+    color: var(--texto);
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -55,7 +57,7 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--bg); /* Destaque em vermelho */
+    color: var(--vermelho);
 }
 
 /* Botão do menu (mobile) */
@@ -105,11 +107,12 @@ section {
 }
 
 .div-azul {
-    background-color: var(--azul); /* Azul da Noruega */
+    background-color: var(--branco);
+    border: 1px solid var(--borda);
     padding: 2rem;
     border-radius: 8px;
     margin-top: 1rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 10px var(--sombra);
 }
 
 .conheca-banner {
@@ -133,12 +136,11 @@ section {
     width: 55%;
     min-width: 220px;
     text-align: left;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: var(--branco);
+    border: 1px solid var(--borda);
     border-radius: 14px;
     padding: 1.5rem;
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 14px 30px var(--sombra);
 }
 
 @media (max-width: 700px) {
@@ -156,12 +158,12 @@ section {
 }
 
 /* Tipografia */
-h2 { font-size: clamp(1.25rem, 1rem + 1.2vw, 1.8rem); color: var(--branco); margin-bottom: 1rem; }
-h3 { font-size: clamp(1rem, 0.8rem + 1vw, 1.1rem); color: var(--branco); margin-bottom: 1rem; text-align: left; }
+h2 { font-size: clamp(1.25rem, 1rem + 1.2vw, 1.8rem); color: var(--azul); margin-bottom: 1rem; }
+h3 { font-size: clamp(1rem, 0.8rem + 1vw, 1.1rem); color: var(--azul); margin-bottom: 1rem; text-align: left; }
 
 /* Parágrafos */
 p {
-    color: var(--branco);
+    color: var(--texto);
     font-size: 1.05rem;
     text-align: left;
 }
@@ -187,22 +189,22 @@ img:hover { transform: translateY(-4px) scale(1.01); }
     font-weight: bold;
     text-align: center;
     margin-top: 0.5rem;
-    color: var(--branco);
+    color: var(--texto-suave);
 }
 
 /*Formulário*/
-.form-feedback { margin-top: 0.6rem; color: var(--branco); font-weight: 700; }
+.form-feedback { margin-top: 0.6rem; color: var(--azul); font-weight: 700; }
 
 /* foco acessível */
 a:focus, button:focus, input:focus, select:focus {
-    outline: 3px solid rgba(255,255,255,0.12);
+    outline: 3px solid rgba(0, 32, 91, 0.25);
     outline-offset: 2px;
 }
 
 :focus-visible {
-    outline: 3px solid #FFFFFF;
+    outline: 3px solid var(--azul);
     outline-offset: 2px;
-    box-shadow: 0 0 0 4px rgba(0, 32, 91, 0.6);
+    box-shadow: 0 0 0 4px rgba(0, 32, 91, 0.2);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -213,7 +215,7 @@ a:focus, button:focus, input:focus, select:focus {
 }
 
 button {
-    background-color: var(--bg);
+    background-color: var(--vermelho);
     color: var(--branco);
     border: solid var(--branco) 1px;
     padding: 0.75rem 1.5rem;
@@ -239,6 +241,16 @@ footer p {
     margin: 0;
     font-size: 0.9rem;
     text-align: center;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--vermelho);
 }
 
 .skip-link {
@@ -258,7 +270,7 @@ footer p {
 
 /* Hero */
 .hero {
-    background-image: linear-gradient(rgba(0, 32, 91, 0.75), rgba(200, 16, 46, 0.6)), url('img/fiorde.png');
+    background-image: linear-gradient(rgba(0, 32, 91, 0.65), rgba(0, 32, 91, 0.5)), url('img/fiorde.png');
     background-size: cover;
     background-position: center;
     min-height: 60vh;
@@ -268,6 +280,8 @@ footer p {
     text-align: center;
     padding: 3rem 2rem;
     margin-bottom: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px var(--sombra);
 }
 
 .hero-conteudo {
@@ -277,6 +291,7 @@ footer p {
 .hero-titulo {
     font-size: clamp(1.8rem, 1rem + 4vw, 3.2rem);
     margin: 0 0 1rem 0;
+    color: var(--branco);
     text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -284,12 +299,13 @@ footer p {
     text-align: center;
     font-size: clamp(1rem, 0.8rem + 1vw, 1.3rem);
     margin: 0 0 2rem 0;
+    color: var(--branco);
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .btn-cta {
     display: inline-block;
-    background-color: var(--bg);
+    background-color: var(--vermelho);
     color: var(--branco);
     border: 2px solid var(--branco);
     padding: 0.85rem 2rem;
@@ -313,18 +329,18 @@ footer p {
 }
 
 .painel-formulario {
-    background-color: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background-color: var(--branco);
+    border: 1px solid var(--borda);
     border-radius: 12px;
     padding: 1.5rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 25px var(--sombra);
     max-width: 100%;
 }
 
 .painel-formulario h3 {
     margin-top: 0;
     margin-bottom: 1rem;
-    color: var(--branco);
+    color: var(--azul);
 }
 
 form {
@@ -344,9 +360,9 @@ form select {
     padding: 0.75rem;
     margin-bottom: 1rem;
     border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    background-color: rgba(255, 255, 255, 0.08);
-    color: var(--branco);
+    border: 1px solid rgba(0, 32, 91, 0.25);
+    background-color: var(--fundo);
+    color: var(--texto);
     box-sizing: border-box;
 }
 
@@ -365,11 +381,13 @@ form option {
 }
 
 .cartao {
-    background: linear-gradient(180deg, var(--cartao-start) 0%, var(--cartao-end) 100%);
-    color: var(--branco);
+    background: var(--branco);
+    color: var(--texto);
+    border: 1px solid var(--borda);
+    border-top: 4px solid var(--azul);
     padding: 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 10px 25px var(--sombra);
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -382,7 +400,7 @@ form option {
 
 .cartao:hover {
     transform: translateY(-5px);
-    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 18px 35px rgba(0, 32, 91, 0.15);
 }
 
 .cartao h2,
@@ -393,19 +411,20 @@ form option {
 .cartao p {
     font-size: 0.95rem;
     line-height: 1.6;
+    color: var(--texto);
 }
 
 .cartao .preco {
     font-size: 1.2rem;
     font-weight: 700;
     margin: 0.75rem 0 1rem 0;
-    color: var(--branco);
+    color: var(--vermelho);
 }
 
 .btn-reservar {
     display: block;
     text-align: center;
-    background-color: var(--bg);
+    background-color: var(--vermelho);
     color: var(--branco);
     border: 1px solid var(--branco);
     border-radius: 5px;

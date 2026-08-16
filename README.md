@@ -29,6 +29,12 @@ Página da copa/
 └── README.md
 ```
 
+## Site publicado
+
+Disponível em: <https://fernandonavarrost-cpu.github.io/landing-page-agencia_de_viagens/>
+
+O deploy é feito automaticamente via GitHub Actions a cada push na branch `main`.
+
 ## Como executar
 
 O projeto é um site estático, sem dependências ou build. Basta abrir o `index.html` no navegador:

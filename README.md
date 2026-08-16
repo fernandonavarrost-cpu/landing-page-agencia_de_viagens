@@ -2,6 +2,8 @@
 
 Site estático da agência de turismo **Travel&U**, criado para promover pacotes de viagem para a **Noruega** e inspirar os visitantes a conhecer o país.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 ## Funcionalidades
 
 - Página única com navegação âncora entre seções
@@ -50,4 +52,6 @@ O projeto é um site estático, sem dependências ou build. Basta abrir o `index
 
 ## Licença
 
-Sem licença definida.
+Este projeto está licenciado sob a [MIT License](LICENSE).
+
+Copyright (c) 2026 Fernando Navarro.

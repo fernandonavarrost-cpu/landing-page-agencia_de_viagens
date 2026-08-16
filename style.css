@@ -163,7 +163,11 @@ h3 { font-size: clamp(1rem, 0.8rem + 1vw, 1.1rem); color: var(--branco); margin-
 p {
     color: var(--branco);
     font-size: 1.05rem;
-    text-align: justify;
+    text-align: left;
+}
+
+.centro {
+    text-align: center;
 }
 
 /* Imagens */
@@ -195,7 +199,18 @@ a:focus, button:focus, input:focus, select:focus {
     outline-offset: 2px;
 }
 
-:focus-visible { outline: 3px solid rgba(255,255,255,0.18); }
+:focus-visible {
+    outline: 3px solid #FFFFFF;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(0, 32, 91, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
 
 button {
     background-color: var(--bg);
@@ -224,6 +239,70 @@ footer p {
     margin: 0;
     font-size: 0.9rem;
     text-align: center;
+}
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--azul);
+    color: var(--branco);
+    padding: 0.75rem 1.25rem;
+    z-index: 100;
+    border-radius: 0 0 8px 0;
+}
+
+.skip-link:focus {
+    left: 0;
+}
+
+/* Hero */
+.hero {
+    background-image: linear-gradient(rgba(0, 32, 91, 0.75), rgba(200, 16, 46, 0.6)), url('img/fiorde.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-bottom: 3rem;
+}
+
+.hero-conteudo {
+    max-width: 720px;
+}
+
+.hero-titulo {
+    font-size: clamp(1.8rem, 1rem + 4vw, 3.2rem);
+    margin: 0 0 1rem 0;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitulo {
+    text-align: center;
+    font-size: clamp(1rem, 0.8rem + 1vw, 1.3rem);
+    margin: 0 0 2rem 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.btn-cta {
+    display: inline-block;
+    background-color: var(--bg);
+    color: var(--branco);
+    border: 2px solid var(--branco);
+    padding: 0.85rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-cta:hover {
+    background-color: var(--accent-dark);
+    transform: translateY(-2px);
 }
 
 .linha-secao {
@@ -316,10 +395,35 @@ form option {
     line-height: 1.6;
 }
 
+.cartao .preco {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0.75rem 0 1rem 0;
+    color: var(--branco);
+}
+
+.btn-reservar {
+    display: block;
+    text-align: center;
+    background-color: var(--bg);
+    color: var(--branco);
+    border: 1px solid var(--branco);
+    border-radius: 5px;
+    padding: 0.6rem 1rem;
+    margin-top: auto;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+.btn-reservar:hover {
+    background-color: var(--accent-dark);
+}
+
 .container-cartoes {
     display: grid;
     gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
 }
 
 @media (max-width: 950px) {

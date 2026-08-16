@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel&U</title>
+    <title>Travel&U — Pacotes de viagem para a Noruega</title>
+    <meta name="description" content="Travel&U — agência de turismo com pacotes de viagem para a Noruega: fiordes, cultura e paisagens inesquecíveis.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Travel&U — Conheça a Noruega">
+    <meta property="og:description" content="Pacotes de viagem para a Noruega: fiordes, cultura e aventura com a Travel&U.">
+    <meta property="og:image" content="img/fiorde.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🇳🇴</text></svg>">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 <header>
     <h1>Quer conhecer a Noruega? Vá com a Travel&U!</h1>
     <nav aria-label="Navegação principal">
@@ -20,7 +28,14 @@
         </ul>
     </nav>
 </header>
-<main>
+<main id="conteudo">
+    <section class="hero">
+        <div class="hero-conteudo">
+            <h2 class="hero-titulo">Descubra a Noruega com a Travel&U</h2>
+            <p class="hero-subtitulo">Fiordes deslumbrantes, cidades vibrantes e experiências inesquecíveis. Escolha o seu pacote e embarque.</p>
+            <a class="btn-cta" href="#pacotes">Ver pacotes</a>
+        </div>
+    </section>
     <section id="conheca">
     <h2>Conheça a Noruega</h2>
     <div class="div-azul">
@@ -54,41 +69,52 @@
     </section>
     <section id="pacotes">
         <h2>Pacotes de Viagem</h2>
-        <p style="text-align: center;">Oferecemos pacotes personalizados para atender às suas necessidades e desejos de viagem.</p>
+        <p class="centro">Oferecemos pacotes personalizados para atender às suas necessidades e desejos de viagem.</p>
         <div class="linha-secao">
             <div class="container-cartoes">
                 <div class="cartao">
                     <h2>Pacote A</h2>
                     <p>7 dias explorando os fiordes e as cidades costeiras.</p>
                     <img src="img/pacA.jpg" alt="Barco navegando por um fiorde, cercado por montanhas verdes e céu azul claro." loading="lazy" width="400" height="250">
+                    <p class="preco">A partir de R$ 8.990</p>
+                    <a class="btn-reservar" href="#contato" data-pacote="pacote-a">Reservar</a>
                 </div>
                 <div class="cartao">
                     <h2>Pacote B</h2>
                     <p>10 dias combinando cultura, história e natureza.</p>
                     <img src="img/pacB.jpg" alt="Vista panorâmica de uma cidade norueguesa, com casas coloridas, um porto movimentado e montanhas ao fundo." loading="lazy" width="400" height="250">
+                    <p class="preco">A partir de R$ 12.490</p>
+                    <a class="btn-reservar" href="#contato" data-pacote="pacote-b">Reservar</a>
                 </div>
                 <div class="cartao">
                     <h2>Pacote C</h2>
                     <p>14 dias com foco em atividades ao ar livre e aventura.</p>
                     <img src="img/pacC.jpg" alt="Grupo de pessoas fazendo trilha em uma montanha, com vista para um fiorde e um céu nublado." loading="lazy" width="400" height="250">
+                    <p class="preco">A partir de R$ 16.900</p>
+                    <a class="btn-reservar" href="#contato" data-pacote="pacote-c">Reservar</a>
                 </div>
                 <div class="cartao">
                     <h2>Pacote D</h2>
                     <p>21 dias explorando as trilhas e as paisagens inesquecíveis da Noruega.</p>
                     <img src="img/pacD.jpg" alt="Grupo de pessoas fazendo trilha em uma montanha, com vista para um fiorde e um céu nublado." loading="lazy" width="400" height="250">
+                    <p class="preco">A partir de R$ 22.500</p>
+                    <a class="btn-reservar" href="#contato" data-pacote="pacote-d">Reservar</a>
                 </div>
             </div>
             <aside class="painel-formulario" id="contato">
                 <h3>Entre em contato</h3>
                     <form id="contato-form">
                         <label for="nome">Nome:</label>
-                        <input type="text" id="nome" name="nome" placeholder="Seu nome completo">
+                        <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
 
                         <label for="numero">Número de telefone:</label>
-                        <input type="tel" id="numero" name="numero" placeholder="(00) 90000-0000">
+                        <input type="tel" id="numero" name="numero" placeholder="(00) 90000-0000" required>
 
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" placeholder="seu@exemplo.com">
+                        <input type="email" id="email" name="email" placeholder="seu@exemplo.com" required>
+
+                        <label for="data">Data de viagem:</label>
+                        <input type="date" id="data" name="data" required>
 
                         <div>
                             <input type="checkbox" id="newsletter" name="newsletter" value="sim">
@@ -105,6 +131,7 @@
 
                         <button type="submit" aria-label="Enviar formulário de contato">Enviar</button>
                     </form>
+                    <div class="form-feedback" role="status" aria-live="polite"></div>
             </aside>
         </div>
     </section>
@@ -120,6 +147,28 @@ btnMenu && btnMenu.addEventListener('click', () => {
     const expanded = btnMenu.getAttribute('aria-expanded') === 'true';
     btnMenu.setAttribute('aria-expanded', String(!expanded));
     menu.classList.toggle('menu-aberto');
+});
+
+// Envio do formulário de contato
+const formContato = document.getElementById('contato-form');
+const feedback = document.querySelector('.form-feedback');
+
+formContato && formContato.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!formContato.checkValidity()) {
+        formContato.reportValidity();
+        return;
+    }
+    feedback.textContent = 'Obrigado! Recebemos seu contato e retornaremos em breve.';
+    formContato.reset();
+});
+
+// Pré-seleciona o pacote ao clicar em "Reservar"
+const selectPacote = document.getElementById('pacote');
+document.querySelectorAll('.btn-reservar').forEach((btn) => {
+    btn.addEventListener('click', () => {
+        if (selectPacote) selectPacote.value = btn.dataset.pacote;
+    });
 });
 </script>
 </body>
